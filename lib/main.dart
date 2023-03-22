@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   static const String _title = 'Drawer en Flutter';
-  // This widget is the root of your application.
+// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,12 +20,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key}) : super(key: key);
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Drawer actividad 3'),
         backgroundColor: const Color(0xff764abc),
       ),
+      key: _key,
       drawer: Drawer(
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
             const UserAccountsDrawerHeader(
@@ -106,6 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           SizedBox(
             height: 50,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              _key.currentState!.openDrawer(); //<-- SEE HERE
+            },
+            child: const Text(
+              'Elevated Button 1',
+              style: TextStyle(fontSize: 24),
+            ),
           ),
         ],
       )),
