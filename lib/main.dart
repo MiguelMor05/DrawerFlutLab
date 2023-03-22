@@ -91,9 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
               applicationIcon: Icon(
                 Icons.local_play,
               ),
-              applicationName: 'My Cool App',
+              applicationName: 'Mi aplicacion',
               applicationVersion: '1.0.25',
-              applicationLegalese: '© 2019 Company',
+              applicationLegalese: '© 2023 MiguelMor',
               aboutBoxChildren: [
                 ///Content goes here...
               ],
